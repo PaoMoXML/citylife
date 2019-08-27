@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.InfoMapper">
+  <resultMap id="BaseResultMap" type="com.pojo.Info">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="infotype" jdbcType="INTEGER" property="infotype" />
+    <result column="infotitle" jdbcType="VARCHAR" property="infotitle" />
+    <result column="infocontent" jdbcType="VARCHAR" property="infocontent" />
+    <result column="infolinkman" jdbcType="VARCHAR" property="infolinkman" />
+    <result column="infophone" jdbcType="VARCHAR" property="infophone" />
+    <result column="infoemail" jdbcType="VARCHAR" property="infoemail" />
+    <result column="infodate" jdbcType="TIMESTAMP" property="infodate" />
+    <result column="infocheck" jdbcType="VARCHAR" property="infocheck" />
+    <result column="infopayfor" jdbcType="VARCHAR" property="infopayfor" />
+    <result column="infostatus" jdbcType="VARCHAR" property="infostatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, infotype, infotitle, infocontent, infolinkman, infophone, infoemail, infodate, 
+    infocheck, infopayfor, infostatus
+  </sql>
+  <select id="selectByExample" parameterType="com.pojo.InfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pojo.InfoExample">
+    delete from info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Info">
+    insert into info (id, infotype, infotitle, 
+      infocontent, infolinkman, infophone, 
+      infoemail, infodate, infocheck, 
+      infopayfor, infostatus)
+    values (#{id,jdbcType=INTEGER}, #{infotype,jdbcType=INTEGER}, #{infotitle,jdbcType=VARCHAR}, 
+      #{infocontent,jdbcType=VARCHAR}, #{infolinkman,jdbcType=VARCHAR}, #{infophone,jdbcType=VARCHAR}, 
+      #{infoemail,jdbcType=VARCHAR}, #{infodate,jdbcType=TIMESTAMP}, #{infocheck,jdbcType=VARCHAR}, 
+      #{infopayfor,jdbcType=VARCHAR}, #{infostatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Info">
+    insert into info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="infotype != null">
+        infotype,
+      </if>
+      <if test="infotitle != null">
+        infotitle,
+      </if>
+      <if test="infocontent != null">
+        infocontent,
+      </if>
+      <if test="infolinkman != null">
+        infolinkman,
+      </if>
+      <if test="infophone != null">
+        infophone,
+      </if>
+      <if test="infoemail != null">
+        infoemail,
+      </if>
+      <if test="infodate != null">
+        infodate,
+      </if>
+      <if test="infocheck != null">
+        infocheck,
+      </if>
+      <if test="infopayfor != null">
+        infopayfor,
+      </if>
+      <if test="infostatus != null">
+        infostatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="infotype != null">
+        #{infotype,jdbcType=INTEGER},
+      </if>
+      <if test="infotitle != null">
+        #{infotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="infocontent != null">
+        #{infocontent,jdbcType=VARCHAR},
+      </if>
+      <if test="infolinkman != null">
+        #{infolinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="infophone != null">
+        #{infophone,jdbcType=VARCHAR},
+      </if>
+      <if test="infoemail != null">
+        #{infoemail,jdbcType=VARCHAR},
+      </if>
+      <if test="infodate != null">
+        #{infodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="infocheck != null">
+        #{infocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="infopayfor != null">
+        #{infopayfor,jdbcType=VARCHAR},
+      </if>
+      <if test="infostatus != null">
+        #{infostatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pojo.InfoExample" resultType="java.lang.Long">
+    select count(*) from info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.infotype != null">
+        infotype = #{record.infotype,jdbcType=INTEGER},
+      </if>
+      <if test="record.infotitle != null">
+        infotitle = #{record.infotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infocontent != null">
+        infocontent = #{record.infocontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infolinkman != null">
+        infolinkman = #{record.infolinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infophone != null">
+        infophone = #{record.infophone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infoemail != null">
+        infoemail = #{record.infoemail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infodate != null">
+        infodate = #{record.infodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.infocheck != null">
+        infocheck = #{record.infocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infopayfor != null">
+        infopayfor = #{record.infopayfor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infostatus != null">
+        infostatus = #{record.infostatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update info
+    set id = #{record.id,jdbcType=INTEGER},
+      infotype = #{record.infotype,jdbcType=INTEGER},
+      infotitle = #{record.infotitle,jdbcType=VARCHAR},
+      infocontent = #{record.infocontent,jdbcType=VARCHAR},
+      infolinkman = #{record.infolinkman,jdbcType=VARCHAR},
+      infophone = #{record.infophone,jdbcType=VARCHAR},
+      infoemail = #{record.infoemail,jdbcType=VARCHAR},
+      infodate = #{record.infodate,jdbcType=TIMESTAMP},
+      infocheck = #{record.infocheck,jdbcType=VARCHAR},
+      infopayfor = #{record.infopayfor,jdbcType=VARCHAR},
+      infostatus = #{record.infostatus,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Info">
+    update info
+    <set>
+      <if test="infotype != null">
+        infotype = #{infotype,jdbcType=INTEGER},
+      </if>
+      <if test="infotitle != null">
+        infotitle = #{infotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="infocontent != null">
+        infocontent = #{infocontent,jdbcType=VARCHAR},
+      </if>
+      <if test="infolinkman != null">
+        infolinkman = #{infolinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="infophone != null">
+        infophone = #{infophone,jdbcType=VARCHAR},
+      </if>
+      <if test="infoemail != null">
+        infoemail = #{infoemail,jdbcType=VARCHAR},
+      </if>
+      <if test="infodate != null">
+        infodate = #{infodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="infocheck != null">
+        infocheck = #{infocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="infopayfor != null">
+        infopayfor = #{infopayfor,jdbcType=VARCHAR},
+      </if>
+      <if test="infostatus != null">
+        infostatus = #{infostatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Info">
+    update info
+    set infotype = #{infotype,jdbcType=INTEGER},
+      infotitle = #{infotitle,jdbcType=VARCHAR},
+      infocontent = #{infocontent,jdbcType=VARCHAR},
+      infolinkman = #{infolinkman,jdbcType=VARCHAR},
+      infophone = #{infophone,jdbcType=VARCHAR},
+      infoemail = #{infoemail,jdbcType=VARCHAR},
+      infodate = #{infodate,jdbcType=TIMESTAMP},
+      infocheck = #{infocheck,jdbcType=VARCHAR},
+      infopayfor = #{infopayfor,jdbcType=VARCHAR},
+      infostatus = #{infostatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="likeSearch" resultType = "com.pojo.Info">
+  	select * from info 
+  	<where>
+  		<if test="infotitle != null and infotitle != ''">
+  			and infotitle LIKE CONCAT('%',#{infotitle},'%')
+  		</if>
+  		<if test="infolinkman != null and infolinkman != ''">
+  			and infolinkman Like concat('%',#{infolinkman},'%')
+  		</if>
+  		<if test="infophone != null and infophone != ''">
+  			and infophone Like concat('%',#{infophone},'%')
+  		</if>
+  		<if test="infoemail != null and infoemail != ''">
+  			and infoemail like concat('%',#{infoemail},'%')
+  		</if>
+  		<if test="infocontent != null and infocontent != ''">
+  		  	and infocontent like concat('%',#{infocontent},'%')
+  		</if>
+  		<if test="id != null and id != ''">
+  		  	and id like concat('%',#{id},'%')
+  		</if>
+  	</where>
+  </select>
+  
+  <select id="search" resultType = "com.pojo.Info">
+  select * from info
+  	<where>
+		<if test="infotitle != null and infotitle != ''">
+  			and infotitle = #{infotitle}
+  		</if>
+  		<if test="infolinkman != null and infolinkman != ''">
+  			and infolinkman = #{infolinkman}
+  		</if>
+  		<if test="infophone != null and infophone != ''">
+  			and infophone = #{infophone}
+  		</if>
+  		<if test="infoemail != null and infoemail != ''">
+  			and infoemail = #{infoemail}
+  		</if>
+  		<if test="infocontent != null and infocontent != ''">
+  		  	and infocontent = #{infocontent}
+  		</if>
+  	</where>
+  </select>
+  
+  <select id="adminInfo">
+  select * from info
+  	<where>
+  		<if test="infotype != null and infotype != ''">
+  			and infotype = #{infotype}
+  		</if>
+  		<if test="infocheck != null and infocheck != ''">
+  			and infocheck = #{infocheck}
+  		</if>
+  		<if test="infopayfor!= null and infopayfo != ''">
+  			and infopayfor = #{infopayfor}
+  		</if>
+  		<if test="infostatus != null and infostatus != ''">
+  			and infostatus = #{infostatus}
+  		</if>
+  	</where>
+  
+  </select>
+</mapper>
