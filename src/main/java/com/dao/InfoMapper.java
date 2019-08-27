@@ -12,12 +12,24 @@ public interface InfoMapper {
 
     int deleteByPrimaryKey(Integer id);
 
+    /**
+     *<p>Title: insert</p>
+     *<p>Description: 添加信息</p>
+     * @param record
+     * @return
+     */
     int insert(Info record);
 
     int insertSelective(Info record);
 
     List<Info> selectByExample(InfoExample example);
 
+    /**
+     *<p>Title: selectByPrimaryKey</p>
+     *<p>Description: 输入id查询</p>
+     * @param id
+     * @return
+     */
     Info selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Info record, @Param("example") InfoExample example);

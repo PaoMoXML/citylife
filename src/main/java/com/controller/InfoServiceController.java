@@ -76,4 +76,43 @@ public class InfoServiceController {
 		json.put("key", info);
 		return json.toJSONString();
 	}
+	
+	/**
+	 *<p>Title: selectID</p>
+	 *<p>Description:输入id查询 </p>
+	 * @param id
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/selectID")
+	public String selectID(@RequestBody Integer id) {
+		JSONObject json = new JSONObject();
+		Info info = infoService.selectByPrimaryKey(id);
+		json.put("key", info);
+		return json.toJSONString();
+	}
+	
+	/**
+	 *<p>Title: add</p>
+	 *<p>Description: 添加信息</p>
+	 * @param record
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/add")
+	public String add(@RequestBody Info record) {
+		JSONObject json = new JSONObject();
+		//0为正常状态，未交费，未审核
+		String b = "0";
+		record.setInfocheck(b);
+		record.setInfopayfor(b);
+		record.setInfostatus(b);
+		int a = infoService.insert(record);
+		if(a==1) {
+			json.put("key", "success");
+		}else {
+			json.put("key","error");
+		}
+		return json.toJSONString();
+	}
 }

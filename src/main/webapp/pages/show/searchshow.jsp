@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>都市信息网</title>
 <link type="text/css" rel="stylesheet" href="../../css/style.css">
+  <script src="../../../js/jquery-3.4.1.min.js"></script>
 </head>
 <body background="../../images/back.gif">
     <center>
@@ -27,6 +28,7 @@
             <tr>
                 <td align="center" style="border:1 solid">
                     <table border="0" width="100%" rules="rows" cellspacing="0">
+                    
                         <tr align="center" height="30" bgcolor="#F0F0F0">
                             <td width="6%"><b>序号</b></td>
                             <td width="11%"><b>信息类别</b></td>                            
@@ -62,7 +64,7 @@
             <tr height="1"><td></td></tr>
             <tr height="30"><td align="center">
 
-
+			
 <html>
 <head><title>分页导航栏</title></head>
 <body>

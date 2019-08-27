@@ -23,4 +23,8 @@ public interface InfoService {
 	List<Info> search(Info record);
 
 	List<Info> adminInfo(Info record);
+	
+	Info selectByPrimaryKey(Integer id);
+	
+	int insert(Info record);
 }

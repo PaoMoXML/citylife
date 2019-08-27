@@ -49,7 +49,7 @@ public class InfoServiceImpl implements InfoService{
 	}
 	/**
 	 * <p>Title: adminInfo</p>
-	 * <p>Description: </p>
+	 * <p>Description: 管理员查询信息</p>
 	 * @param record
 	 * @return
 	 * @see com.service.InfoService#adminInfo(com.pojo.Info)
@@ -57,6 +57,28 @@ public class InfoServiceImpl implements InfoService{
 	@Override
 	public List<Info> adminInfo(Info record) {
 		return infoMapper.adminInfo(record);
+	}
+	/**
+	 * <p>Title: selectByPrimaryKey</p>
+	 * <p>Description:输入id查询 </p>
+	 * @param id
+	 * @return
+	 * @see com.service.InfoService#selectByPrimaryKey(java.lang.Integer)
+	 */
+	@Override
+	public Info selectByPrimaryKey(Integer id) {
+		return infoMapper.selectByPrimaryKey(id);
+	}
+	/**
+	 * <p>Title: insert</p>
+	 * <p>Description: 添加信息</p>
+	 * @param record
+	 * @return
+	 * @see com.service.InfoService#insert(com.pojo.Info)
+	 */
+	@Override
+	public int insert(Info record) {
+		return infoMapper.insert(record);
 	}
 
 }

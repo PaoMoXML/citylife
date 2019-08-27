@@ -28,9 +28,9 @@
                                   <br>
                                   <input type="radio" name="showType.payforType" id="admin_ListShow_action?_showType_payforType0" value="0"/>
 								  <label for="admin_ListShow_action?_showType_payforType0">未付费</label>
-								<input type="radio" name="showType.payforType" id="admin_ListShow_action?_showType_payforType1" value="1"/>
+								<input type="radio" name="showType.payforType" id="admin_ListShow_action?_showType_payforType1" value="1" />
 								<label for="admin_ListShow_action?_showType_payforType1">已付费</label>
-								<input type="radio" name="showType.payforType" id="admin_ListShow_action?_showType_payforTypeall" value="all"/>
+								<input type="radio" name="showType.payforType" id="admin_ListShow_action?_showType_payforTypeall" value="all" checked/>
 								<label for="admin_ListShow_action?_showType_payforTypeall">全部</label>
 
                                 </fieldset>
@@ -41,7 +41,7 @@
 								  <label for="admin_ListShow_action?_showType_stateType0">未审核</label>
 									<input type="radio" name="showType.stateType" id="admin_ListShow_action?_showType_stateType1" value="1"/>
 									<label for="admin_ListShow_action?_showType_stateType1">已审核</label>
-									<input type="radio" name="showType.stateType" id="admin_ListShow_action?_showType_stateTypeall" value="all"/>
+									<input type="radio" name="showType.stateType" id="admin_ListShow_action?_showType_stateTypeall" value="all" checked/>
 									<label for="admin_ListShow_action?_showType_stateTypeall">全部</label>
 
                                 </fieldset>
@@ -55,7 +55,7 @@
                                
                                    <select name="showType.infoType" id="admin_ListShow_action?_showType_infoType">
 										<option value=""></option>
-										<option value="0">暂时没有信息</option>
+										<option value="0" selected>暂时没有信息</option>
 										<option value="1">招聘信息</option>
 										<option value="2">培训信息</option>
 										<option value="3">房屋信息</option>
@@ -68,48 +68,45 @@
 										<option value="10">出售信息</option>
 										<option value="11">寻找启示</option>
 
-
 									</select>
 
-                               <input type="button" id="admin_ListShow_action_0" onclick="adminSearch()"value="显示"/>
+                               <input type="button" id="admin_ListShow_action_0" onclick="clickbutton()"value="显示"/>
                                 <script type="text/javascript">
-                                function adminSearch(){
+                                function clickbutton(){
+                                	var infopayfor;
+                                	var infocheck;
                                 	if(document.getElementById('admin_ListShow_action?_showType_payforType0').checked){
                                 		console.log("未付费")
+                                		infopayfor=0;
+                                		console.log(infopayfor);
                                 	}else if(document.getElementById('admin_ListShow_action?_showType_payforType1').checked){
                                 		console.log("已付费")
+                                		infopayfor=1
                                 	}else if(document.getElementById('admin_ListShow_action?_showType_payforTypeall').checked){
                                 		console.log("全部")
+                                		infopayfor=''
                                 	}
-                                	
-                                	
                                 	if(document.getElementById('admin_ListShow_action?_showType_stateType0').checked){
                                 		console.log("未审核");
+                                		infocheck=0
                                 	}else if(document.getElementById('admin_ListShow_action?_showType_stateType1').checked){
                                 		console.log("已审核")
+                                		infocheck=1
                                 	}else if(document.getElementById('admin_ListShow_action?_showType_stateTypeall').checked){
                                 		console.log("全部")
+                                		infocheck=''
                                 	}
-                                	var x = document.getElementById('admin_ListShow_action?_showType_infoType').value;
-                                	console.log(x);
+                                	var infotype = document.getElementById('admin_ListShow_action?_showType_infoType').value;
+                                	console.log(infotype);
                                 	
-/*     								$.ajax({
-    									type:"post",
-    									url:url,
-    									data:jsonData,
-    									dataType:"json",
-    							        contentType : "application/json;charset=UTF-8",
-    							        success: function(result){
-    							            console.log(result);
-    							           },
-    							           error: function(result) {
-    							               console.log(result);
-    							           },
-    								}) */
-                                	
-                                	
-                                	
+                                	 window.localStorage.setItem("infopayfor", infopayfor);
+                                     window.localStorage.setItem("infocheck", infocheck);
+                                     window.localStorage.setItem("infotype", infotype); 
+									
+                                     window.parent.document.getElementById("main").contentWindow.document.getElementById("default").contentWindow.adminSearch();
+                                     
                                 }
+
                                 </script>
                             </td>
                         </tr>
@@ -123,21 +120,24 @@
             <!-- 设置已付费信息 -->            
             <tr height="30" bgcolor="#F0F0F0"><td style="text-indent:5" style="border:1 solid"><font color="#004790"><b>■付费设置</b></font></td></tr>
             <tr height="1"><td></td></tr>
-            <form action="admin_SetMoneyShow.action">
+            <!-- <form action="admin_SetMoneyShow.action"> -->
             <tr>
                 <td align="center" valign="top" style="border:1 solid">
                     <table border="0" width="220" height="80" cellspacing="0"  style="font-size:12px">
                         <tr height="25"><td align="center" valign="bottom">请输入要设为已付费状态的信息ID：</td></tr>
                         <tr height="40">
                             <td align="center">
-                                <input type="text" name="moneyID" value="" size="24"/>
-                                <input type="submit" value="查询"/>
+                                <input type="text" name="moneyID" id= "moneyID" value="" size="24"/>
+                                <input type="button" value="查询"/>
+                                <script type="text/javascript">
+                                
+                                </script>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            </form>
+            <!-- </form> -->
             <tr height="5"><td></td></tr>
             <tr height="30" bgcolor="#F0F0F0"><td style="text-indent:5;border:1 solid"><font color="#004790"><b>■日历</b></font></td></tr>
             <tr height="1"><td></td></tr>

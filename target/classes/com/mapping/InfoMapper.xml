@@ -349,7 +349,7 @@
   	</where>
   </select>
   
-  <select id="adminInfo">
+  <select id="adminInfo" resultType = "com.pojo.Info">
   select * from info
   	<where>
   		<if test="infotype != null and infotype != ''">
@@ -358,7 +358,7 @@
   		<if test="infocheck != null and infocheck != ''">
   			and infocheck = #{infocheck}
   		</if>
-  		<if test="infopayfor!= null and infopayfo != ''">
+  		<if test="infopayfor!= null and infopayfor != ''">
   			and infopayfor = #{infopayfor}
   		</if>
   		<if test="infostatus != null and infostatus != ''">

@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>都市信息网-后台管理</title>
  <link type="text/css" rel="stylesheet" href="/citylife/css/style.css">
+   <script src="../js/jquery-3.4.1.min.js"></script>
 </head>
 <body >
    
@@ -24,11 +25,13 @@
             <tr>
                 <td width="700" align="center" valign="top">
 					<!-- main -->
-					<iframe src="/citylife/pages/admin/view/main.jsp" frameBorder="0" width="688" scrolling="no" height="400" ></iframe>
+					<iframe src="/citylife/pages/admin/view/main.jsp" frameBorder="0" width="688" scrolling="no" height="400" id = "main" ></iframe>
 				</td>
 				<td width="200" align="center" valign="top">
 					<!-- 右侧栏 -->
-					<iframe src="/citylife/pages/admin/view/right.jsp" frameBorder="0" width="240" scrolling="no" height="570" ></iframe>
+					<iframe src="/citylife/pages/admin/view/right.jsp" frameBorder="0" width="240" scrolling="no" height="570" id="rightpage"></iframe>
+						<script type="text/javascript">
+				        </script>
 				</td>
             </tr>
 			<!-- 分隔行 -->

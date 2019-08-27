@@ -92,6 +92,12 @@
 								}
 								var search = {"infotitle":infotitle,"infolinkman":infolinkman,"infophone":infophone,"infoemail":infoemail,"infocontent":infocontent,"id":id}
 								var jsonData = JSON.stringify(search);
+/* 								window.localStorage.setItem("infotitle", infotitle);
+							    window.localStorage.setItem("infolinkman", infolinkman);
+							    window.localStorage.setItem("infophone", infophone);
+							    window.localStorage.setItem("infoemail", infoemail);
+							    window.localStorage.setItem("infocontent", infocontent);
+							    window.localStorage.setItem("id", id); */
 								$.ajax({
 									type:"post",
 									url:url,
@@ -100,6 +106,7 @@
 							        contentType : "application/json;charset=UTF-8",
 							        success: function(result){
 							            console.log(result);
+							            
 							           },
 							           error: function(result) {
 							               console.log(result);

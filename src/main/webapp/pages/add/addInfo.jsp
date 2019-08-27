@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>都市信息网</title>
 <link type="text/css" rel="stylesheet" href="../../css/style.css">
+<script src="../../js/jquery-3.4.1.min.js"></script>
 </head>
 <body background="../../images/back.gif">
     <center>
@@ -27,8 +28,8 @@
 					<tr height="20"><td><img src="../../images/default_t.jpg"></td></tr>
 					<tr>
 						<td background="../../images/default_m.jpg" valign="top" align="center">
-							<form id="info_Add_action" name="info_Add_action" action="/web/info_Add.action" method="post">
-							<input type="hidden" name="addType" value="add"/>
+<!-- 							<form id="info_Add_action" name="info_Add_action" action="/web/info_Add.action" method="post">
+ -->							<input type="hidden" name="addType" value="add"/>
 							<table border="0" width="650" height="300"  cellspacing="0">
 								<tr height="30"><td style="text-indent:10"><font color="#004790"><b>■发布信息</b></font></td></tr>
 								<tr>
@@ -95,14 +96,42 @@
 								</tr>
 								<tr align="center" height="50">
 									<td>
-										<input type="submit" id="info_Add_action_0" value="&#21457;&#24067;"/>
+										<input type="button" id="info_Add_action_0" value="&#21457;&#24067;" onclick="add()"/>
 
 										<input type="reset" value="&#37325;&#22635;"/>
+										
+										<script type="text/javascript">
+										function add(){
+											var infotype = document.getElementById('info_Add_action_infoSingle_infoType').value;
+											var infotitle = document.getElementById('info_Add_action_infoSingle_infoTitle').value;
+											var infocontent = document.getElementById('content').value;
+											var infolinkman = document.getElementById('info_Add_action_infoSingle_infoLinkman').value;
+											var infophone = document.getElementById('info_Add_action_infoSingle_infoPhone').value;
+											var infoemail = document.getElementById('info_Add_action_infoSingle_infoEmail').value;
+											var adds = {"infotype":infotype,"infotitle":infotitle,"infocontent":infocontent,"infolinkman":infolinkman,"infophone":infophone,"infoemail":infoemail};
+											var jsonData = JSON.stringify(adds);
+											var url = "${pageContext.request.contextPath}/info/add";
+											$.ajax({
+												type:"post",
+												url:url,
+												data:jsonData,
+												dataType:"json",
+										        contentType : "application/json;charset=UTF-8",
+										        success: function(result){
+										            console.log(result);
+										            
+										           },
+										           error: function(result) {
+										               console.log(result);
+										           },
+											})
+										}
+										</script>
 
 									</td>
 								</tr>
 							</table>
-							</form>
+							<!-- </form> -->
 
 						</td>
 					</tr>
