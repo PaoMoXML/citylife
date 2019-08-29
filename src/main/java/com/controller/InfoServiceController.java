@@ -42,11 +42,11 @@ public class InfoServiceController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/likeSearch")
-	public String likeSearch(@RequestBody Info record) {
+	public List<Info> likeSearch(@RequestBody Info record) {
 		JSONObject json = new JSONObject();
 		List<Info> i = infoService.likeSearch(record);
 		json.put("key", i);
-		return json.toJSONString();
+		return i;
 	}
 	
 	/**

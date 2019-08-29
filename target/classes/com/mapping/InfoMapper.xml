@@ -346,6 +346,9 @@
   		<if test="infocontent != null and infocontent != ''">
   		  	and infocontent = #{infocontent}
   		</if>
+  		  <if test="id != null and id != ''">
+  		  	and id = #{id}
+  		</if>
   	</where>
   </select>
 <!--   管理员查询信息 -->

@@ -5,7 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title>都市信息网</title>
- <link type="text/css" rel="stylesheet" href="../css/style.css">
+<link type="text/css" rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+
+<%--js部分--%>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+<script src="../js/echarts.min.js"></script>
 </head>
 <body background="../images/back.gif">
     <center>
@@ -18,7 +29,7 @@
             <tr>
                 <td width="230" valign="top" align="center">
 				<!-- 左侧 -->
-				<iframe src="left.jsp" frameBorder="0" width="225" scrolling="no" height="400" ></iframe>
+				<iframe src="left.jsp" frameBorder="0" width="225" scrolling="no" height="400" id = "left"></iframe>
 				</td>
                 <td width="690" height="400" align="center" valign="top" bgcolor="#FFFFFF">
 
@@ -87,14 +98,16 @@
 							<tr height="35"><td colspan="2" style="text-indent:5" valign="bottom"><font color="#004790"><b>■最新信息</b>『免费专区』</font></td></tr>            
 							 
 							<tr>
-								<td align="center">
-									<table border="1" cellspacing="0" cellpadding="0" width="332" height="160" rules="none" bordercolor="lightgrey" bordercolorlight="lightgrey" bordercolordark="white">
+								<td> <table id="showSearch"
+											class="table"
+											style="margin: 0px auto">
 									</table>
-								</td>
-							
-						
-						 
+								</td>		
+								<td> 
+									1234
+								</td>							
 							</tr>
+							
 						
 							<tr>
 								<td align="center">
@@ -129,11 +142,13 @@
 						<br>
 					</center>
 				</body>
+
 				</html>
 			</td>
 		</tr>
 
        </table>
+
 		<!-- 页脚 -->
 		<iframe src="end.jsp" frameBorder="0" width="920" scrolling="no" height="70" style="margin-top:0"></iframe>	   
     </center>

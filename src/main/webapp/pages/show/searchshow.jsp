@@ -6,7 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>都市信息网</title>
 <link type="text/css" rel="stylesheet" href="../../css/style.css">
-  <script src="../../../js/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+
+<%--js部分--%>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/bootstrap-table.js"></script>
+<script src="../../js/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/echarts.min.js"></script>
 </head>
 <body background="../../images/back.gif">
     <center>
@@ -18,7 +28,7 @@
 <tr>
 	<td width="230" valign="top" align="center">
 	<!-- 左侧 -->
-	<iframe src="../../view/left.jsp" frameBorder="0" width="225" scrolling="no" height="400" ></iframe>
+	<iframe id = "searchPage" src="../../view/left.jsp" frameBorder="0" width="225" scrolling="no" height="400" ></iframe>
 	</td>
    <td width="690" height="400" align="center" valign="top" bgcolor="#FFFFFF">        
         <table border="0" width="670" cellspacing="0" cellpadding="0" style="margin-top:5">
@@ -27,57 +37,92 @@
             <tr height="1"><td></td></tr>
             <tr>
                 <td align="center" style="border:1 solid">
-                    <table border="0" width="100%" rules="rows" cellspacing="0">
-                    
-                        <tr align="center" height="30" bgcolor="#F0F0F0">
-                            <td width="6%"><b>序号</b></td>
-                            <td width="11%"><b>信息类别</b></td>                            
-                            <td width="8%"><b>ID值</b></td>
-                            <td width="38%"><b>信息标题</b></td>
-                            <td width="22%"><b>发布时间</b></td>
-                            <td width="15%"><b>联系人</b></td>
-                        </tr>
-  
-						<tr height="30">
-							<td align="center"><b>1</b></td>
-							<td align="center">招聘信息</td>
-							<td style="text-indent:10">134</td>
-							<td style="text-indent:5"><a href="info_SingleShow.action?id=134">发布招聘信息标题</a></td>
-							<td align="center">2007-12-26 13:58:53</td>                                    
-							<td style="text-indent:10">小免</td>
-						</tr>
-						
-						<tr height="30" bgcolor="#F9F9F9">
-						
-							<td align="center"><b>2</b></td>
-							<td align="center">寻找启示</td>
-							<td style="text-indent:10">133</td>
-							<td style="text-indent:5"><a href="info_SingleShow.action?id=133">发布寻找启示标题</a></td>
-							<td align="center">2007-12-26 13:56:49</td>                                    
-							<td style="text-indent:10">小免</td>
-						</tr>
-          
-                        
-                    </table>
+					<table id="showSearch"
+							class="table"
+							style="margin: 0px auto">
+					</table>
                 </td>
             </tr>
             <tr height="1"><td></td></tr>
             <tr height="30"><td align="center">
+            <script type="text/javascript">
+		       
+            window.onload = function () {
+                // 通过getElementById获取嵌套页面的ID调用嵌套的页面的方法进行参数回填
+                
+                userSearch();
+            };
+            
+		       function userSearch(){
+		    	  	var infotitle = window.localStorage.getItem("infotitle");
+					var infolinkman = window.localStorage.getItem("infolinkman");
+		    	  	var infophone = window.localStorage.getItem("infophone");
+					var infoemail = window.localStorage.getItem("infoemail");
+		    	  	var infocontent = window.localStorage.getItem("infocontent");
+					var id = window.localStorage.getItem("id");
+					var url = window.localStorage.getItem("url");
+					var search = {"infotitle":infotitle,"infolinkman":infolinkman,"infophone":infophone,"infoemail":infoemail,"infocontent":infocontent,"id":id}
+					var jsonData = JSON.stringify(search);
+					
+					 $('#showSearch').bootstrapTable('destroy').bootstrapTable({
+						 ajax : function(request) {
+								$.ajax({
+									type:"post",
+									url:url,
+									data:jsonData,
+									dataType:"json",
+							        contentType : "application/json;charset=UTF-8",
+							        success: function(result){
+							            console.log(result);
+							            request.success({
+						                    row : result
+						                });
+							            $('#showSearch').bootstrapTable('load', result);
+							           },
+							           error: function(result) {
+							               console.log(result);
+							           },
+								})
+						 },
+							striped : true, //是否显示行间隔色
+							pageNumber : 1, //初始化加载第一页
+							cache : true,//是否缓存数据
+							toolbar : '#toolbar', //工具按钮用哪个容器
+							buttonsAlign : "right", //按钮位置
+							pagination : true,//是否分页
+							sidePagination : 'client',//server:服务器端分页|client：前端分页
+							cardView : true,
+							pageSize : 2,//单页记录数
+							detailView:true,
+							columns : [
+								{
+								title : 'ID:  ',
+								field : 'id',
+								sortable : true
+							}, {
+								title : '标题:  ',
+								field : 'infotitle',
+								sortable : true
+							}, {
+								title : '联系人:  ',
+								field : 'infolinkman',
+							}, {
+								title : '电话:  ',
+								field : 'infophone',
+							}, {
+								title : '邮箱:  ',
+								field : 'infoemail',
+							},{
+								title : '内容:  ',
+								field : 'infocontent',
+							} ],
+					 })
+					
+		       }
+		       </script>
 
 			
-<html>
-<head><title>分页导航栏</title></head>
-<body>
-
-    <table border="0" width="100%" cellspacing="0">
-        <tr>
-            <td width="60%"><table border='0' cellpadding='3'><tr><td>每页显示：8/22 条记录！当前页：1/3 页！</td></tr></table></td>
-            <td align="center" width="40%"><table border='0' cellpadding='3'><tr><td><a href='info_SearchShow.action?searchInfo.subsql=info_phone&searchInfo.sqlvalue=1&searchInfo.type=like&showType=link&showpage=2'>下一页</a>&nbsp;<a href='info_SearchShow.action?searchInfo.subsql=info_phone&searchInfo.sqlvalue=1&searchInfo.type=like&showType=link&showpage=3'>尾页</a></td></tr></table></td>
-        </tr>
-    </table>
-
-</body>
-</html></td></tr>
+</td></tr>
         </table>
         
         <br>

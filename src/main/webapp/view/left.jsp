@@ -64,6 +64,7 @@
 						<td align="center" >
 							<input type="button" id="info_SearchShow_action_0" onclick="search()" value="搜索"/>
 							<script type="text/javascript">
+							
 							function search(){
 								//判断查询类型
 								if(document.getElementById('info_SearchShow_action_searchInfo_typeall').checked){
@@ -76,6 +77,12 @@
 								//获取查询条件
 								var x = document.getElementById('info_SearchShow_action_searchInfo_subsql').value;
 								console.log(x);
+								var infolinkman = '';
+								var infophone = '';
+								var infoemail = '';
+								var infocontent = '';
+								var id = '';
+								var infotitle = '';
 								//判断查询条件
 								if(x=='infotitle'){
 									var infotitle = document.getElementById('info_SearchShow_action_searchInfo_sqlvalue').value;
@@ -92,26 +99,15 @@
 								}
 								var search = {"infotitle":infotitle,"infolinkman":infolinkman,"infophone":infophone,"infoemail":infoemail,"infocontent":infocontent,"id":id}
 								var jsonData = JSON.stringify(search);
-/* 								window.localStorage.setItem("infotitle", infotitle);
+								window.localStorage.setItem("url",url);
+ 								window.localStorage.setItem("infotitle", infotitle);
 							    window.localStorage.setItem("infolinkman", infolinkman);
 							    window.localStorage.setItem("infophone", infophone);
 							    window.localStorage.setItem("infoemail", infoemail);
 							    window.localStorage.setItem("infocontent", infocontent);
-							    window.localStorage.setItem("id", id); */
-								$.ajax({
-									type:"post",
-									url:url,
-									data:jsonData,
-									dataType:"json",
-							        contentType : "application/json;charset=UTF-8",
-							        success: function(result){
-							            console.log(result);
-							            
-							           },
-							           error: function(result) {
-							               console.log(result);
-							           },
-								})
+							    window.localStorage.setItem("id", id); 
+							    window.parent.location.href='/citylife/pages/show/searchshow.jsp';
+	
 							}
 							</script>
 						</td>
