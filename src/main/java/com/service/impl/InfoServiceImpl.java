@@ -80,5 +80,40 @@ public class InfoServiceImpl implements InfoService{
 	public int insert(Info record) {
 		return infoMapper.insert(record);
 	}
+	/**
+	 * <p>Title: idSearch</p>
+	 * <p>Description: 用id查询信息</p>
+	 * @param record
+	 * @return
+	 * @see com.service.InfoService#idSearch(com.pojo.Info)
+	 */
+	@Override
+	public List<Info> idSearch(Info record) {
+		return infoMapper.idSearch(record);
+	}
+	/**
+	 * <p>Title: del</p>
+	 * <p>Description: 删除（修改信息状态为1）</p>
+	 * @param record
+	 * @return
+	 * @see com.service.InfoService#del(com.pojo.Info)
+	 */
+	@Override
+	public int del(Info record) {
+		return infoMapper.del(record);
+	}
+	/**
+	 * <p>Title: change</p>
+	 * <p>Description: 修改信息</p>
+	 * @param record
+	 * @return
+	 * @see com.service.InfoService#change(com.pojo.Info)
+	 */
+	@Override
+	public int change(Info record) {
+		return infoMapper.change(record);
+	}
+	
+	
 
 }

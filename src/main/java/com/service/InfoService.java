@@ -27,4 +27,10 @@ public interface InfoService {
 	Info selectByPrimaryKey(Integer id);
 	
 	int insert(Info record);
+	
+	List<Info> idSearch(Info record);
+	
+	int del(Info record);
+	
+	int change(Info record);
 }

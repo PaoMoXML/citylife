@@ -9,7 +9,7 @@
 </head>
 <body bgcolor="#E7ECEF">
     <center>
-        <form id="log_Login_action" name="log_Login_action" action="${pageContext.request.contextPath}/user/login" method="get">
+        <form id="log_Login_action" name="log_Login_action" action="${pageContext.request.contextPath}/user/reg" method="get">
             <table border="0" cellspacing="0" cellpadding="0" style="margin-top:130">
                 <tr><td><img src="../../images/logon_top.gif"></td></tr>                
                 <tr height="180">
@@ -24,16 +24,19 @@
                                  <td align="right">密&nbsp;&nbsp;码：&nbsp;&nbsp;</td>
                                  <td style="text-indent:5"><input type="password" name="userpassword" size="30" id="log_Login_action_user_userPassword"/></td>
                              </tr>
+                              <tr height="30">
+                                 <td align="right">重&nbsp;&nbsp;复&nbsp;&nbsp;密&nbsp;&nbsp;码：&nbsp;&nbsp;</td>
+                                 <td style="text-indent:5"><input type="password" name="userpassword2" size="30" id="log_Login_action_user_userPassword"/></td>
+                             </tr>
                              <tr height="60">
                                  <td></td>
                                  <td>
 								
-                                     <input type="submit" id="" value="登录"/>
+                                     <input type="submit" id="" value="注册" />
 
                                      <input type="reset" value="重置"/>
 
                                      <a id="log_Login_action_" href="../../view/indextemp.jsp">[返回首页]</a>
-                                     <a id="log_Login_action_" href="../../pages/admin/reg.jsp">[前去注册]</a>
                                  </td>
                              </tr>
                          </table>

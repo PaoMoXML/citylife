@@ -25,13 +25,11 @@
             <tr>
                 <td width="700" align="center" valign="top">
 					<!-- main -->
-					<iframe src="/citylife/pages/admin/view/main.jsp" frameBorder="0" width="688" scrolling="no" height="400" id = "main" ></iframe>
+					<iframe src="/citylife/pages/admin/view/main.jsp" frameBorder="0" width="688" scrolling="no" height="550"id = "main" ></iframe>
 				</td>
 				<td width="200" align="center" valign="top">
 					<!-- 右侧栏 -->
 					<iframe src="/citylife/pages/admin/view/right.jsp" frameBorder="0" width="240" scrolling="no" height="570" id="rightpage"></iframe>
-						<script type="text/javascript">
-				        </script>
 				</td>
             </tr>
 			<!-- 分隔行 -->

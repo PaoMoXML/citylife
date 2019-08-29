@@ -212,6 +212,10 @@
   <select id="Login" resultType="com.pojo.User">
   	select * from user where username = #{username}
   </select>
+  
+    <select id="regtest" resultType="com.pojo.User">
+  	select * from user where username = #{username}
+  </select>
 <!--   注册 -->
    <insert id="reg" parameterType="com.pojo.User">
     insert into user (id, username, userpassword, 
@@ -219,4 +223,42 @@
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
       #{usertype,jdbcType=VARCHAR}, #{userstatue,jdbcType=VARCHAR})
   </insert>
+<!--   用户信息修改 -->
+  <update id="change" parameterType="com.pojo.User">
+   update user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userpassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        usertype = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="userstatue != null">
+        userstatue = #{userstatue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where username = #{username,jdbcType=VARCHAR}
+  </update>
+<!--   用户删除 -->
+<update id="del" parameterType="com.pojo.User">
+   update user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userpassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null">
+        usertype = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="userstatue != null">
+        userstatue = #{userstatue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where username = #{username,jdbcType=VARCHAR}
+</update>
 </mapper>

@@ -63,4 +63,28 @@ public interface InfoMapper {
      * @return
      */
     List<Info> adminInfo(Info record);
+    
+    /**
+     *<p>Title: idSearch</p>
+     *<p>Description: 用id查询信息</p>
+     * @param record
+     * @return
+     */
+    List<Info> idSearch(Info record);
+    
+    /**
+     *<p>Title: del</p>
+     *<p>Description:删除（修改状态为1） </p>
+     * @param record
+     * @return
+     */
+    int del(Info record);
+    
+    /**
+     *<p>Title: change</p>
+     *<p>Description: 修改信息</p>
+     * @param record
+     * @return
+     */
+    int change(Info record);
 }

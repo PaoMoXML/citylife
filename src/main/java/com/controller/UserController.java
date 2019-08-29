@@ -5,6 +5,8 @@
  */
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,13 +57,13 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/reg")
-	@ResponseBody
-	public String reg(@RequestBody User record) {
+	public String reg(User record) {
 		JSONObject json = new JSONObject();
 		String statue = "0";
 		//设置用户状态为可用
 		record.setUserstatue(statue);
-		if(userService.Login(record).getUsername().equals("") || userService.Login(record).getUsername()==null ) {
+		List<User> l = userService.regtest(record);
+		if(l.size()==0) {
 			int u = userService.reg(record);
 			if(u==1) {
 				json.put("key", "success");
@@ -76,6 +78,43 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 *<p>Title: change</p>
+	 *<p>Description: 修改用户信息</p>
+	 * @param record
+	 * @return
+	 */
+	@RequestMapping(value = "/change")
+	public String change(User record) {
+		JSONObject json = new JSONObject();
+		int a = userService.change(record);
+		if(a==1) {
+			json.put("key", "success");
+		}else {
+			json.put("key", "error");
+		}
+		return json.toJSONString();
+	}
+	
+	/**
+	 *<p>Title: del</p>
+	 *<p>Description: 删除用户（将用户状态修改为1）</p>
+	 * @param record
+	 * @return
+	 */
+	@RequestMapping(value = "/del")
+	public String del(User record) {
+		JSONObject json = new JSONObject();
+		//1为删除状态
+		record.setUserstatue("1");
+		int a = userService.del(record);
+		if(a==1) {
+			json.put("key", "success");
+		}else {
+			json.put("key", "error");
+		}
+		return json.toJSONString();
+	}
 	
 }
 

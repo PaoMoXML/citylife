@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -30,16 +31,18 @@
                      
                      
                              <table border="0" width="655" cellpadding="3" style="word-break:break-all">
+                             <c:forEach items="${info0}" var="list0"> 
                                  <tr height="30">
-                                     <td colspan="2">【XX信息】</td>
-                                     <td align="right">发布时间：『2014-10-26 11:16:14』&nbsp;</td>
+                                     <td colspan="2">【${list0.infotitle }信息】</td>
+                                     <td align="right">发布时间：『${list0.infodate }』&nbsp;</td>
                                  </tr>
-                                 <tr height="80"><td colspan="3">XX信息内容</td></tr>
+                                 <tr height="80"><td colspan="3">${list0.infotitle }信息内容</td></tr>
                                  <tr height="30" align="center">
-                                     <td>联系电话：13255******</td>
-                                     <td>联 系 人：XX</td>
-                                     <td>E-mail：888@8*.com</td>
-                                 </tr>                                 
+                                     <td>联系电话：${list0.infophone }</td>
+                                     <td>联 系 人：${list0.infolinkman }</td>
+                                     <td>E-mail：${list0.infoemail }</td>
+                                 </tr>  
+                                 </c:forEach>                               
                              </table>
                          </td>
                      </tr>
@@ -47,6 +50,7 @@
                 
             
         </table>
+        
         <!-- 列表显示免费信息 -->
         
         <table border="0" width="670" cellspacing="0" cellpadding="0" style="margin-top:5" rules="rows">
@@ -59,16 +63,18 @@
                      
                      
                              <table border="0" width="655" cellpadding="3" style="word-break:break-all">
+                             <c:forEach items="${info1}" var="list1"> 
                                  <tr height="30">
-                                     <td colspan="2">【XX信息】</td>
-                                     <td align="right">发布时间：『2014-10-26 13:58:53』&nbsp;</td>
+                                     <td colspan="2">【${list1.infotitle }信息】</td>
+                                     <td align="right">发布时间：『${list1.infodate }』&nbsp;</td>
                                  </tr>
-                                 <tr height="80"><td colspan="3">发布XX信息标题</td></tr>
+                                 <tr height="80"><td colspan="3">${list1.infotitle }信息内容</td></tr>
                                  <tr height="30" align="center">
-                                     <td>联系电话：11111******</td>
-                                     <td>联系人：XX</td>
-                                     <td>E-mail：44@1*.com</td>
-                                 </tr>
+                                     <td>联系电话：${list1.infophone }</td>
+                                     <td>联 系 人：${list1.infolinkman }</td>
+                                     <td>E-mail：${list1.infoemail }</td>
+                                 </tr>  
+                                  </c:forEach>     
                              </table>
                          </td>
                      </tr>
@@ -90,6 +96,8 @@
 				</td></tr>                
             
         </table>
+        
+        
         <br>
 </td>
             </tr>

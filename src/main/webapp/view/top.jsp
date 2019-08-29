@@ -22,7 +22,7 @@
                 <td align="right" valign="bottom">
                     <a href="#"  style="color:gray" onclick="">设为主页 -</a>
                     <a href="javascript:window.external.AddFavorite('indextemp.htm','都市供求信息网')" style="color:gray">收藏本页 -</a>
-                    <a href="mailto:123@***.com.cn" style="color:gray">联系我们</a>
+                    <a href="mailto:xml001001@126.com" style="color:gray">联系我们</a>
                     &nbsp;
                 </td>
             </tr>
@@ -39,40 +39,40 @@
 								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">暂时没有信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">招聘信息</a>
+								<a href=""  onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=1'"style="color:white">招聘信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">培训信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=2'" style="color:white">培训信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">房屋信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=3'" style="color:white">房屋信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">求购信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=4'" style="color:white">求购信息</a>
 							</td>
 						</tr>
 								
 						<tr align="center">
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">招商引资</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=5'" style="color:white">招商引资</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">公寓信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=6'" style="color:white">公寓信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">求职信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=7'" style="color:white">求职信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">家教信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=8'" style="color:white">家教信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">车辆信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=9'" style="color:white">车辆信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">出售信息</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=10'" style="color:white">出售信息</a>
 							</td>
 							<td width="100">
-								<a href="" onclick="window.parent.location.href='../pages/show/listshow.jsp'" style="color:white">寻找启示</a>
+								<a href="" onclick="window.parent.location.href='http://localhost:8080/citylife//info/listshow?infotype=11'" style="color:white">寻找启示</a>
 							</td>    
 						</tr>                      
 					</table>

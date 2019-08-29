@@ -43,4 +43,28 @@ public interface UserMapper {
      * @return
      */
     int reg(User record);
+    
+    /**
+     *<p>Title: regtest</p>
+     *<p>Description: 注册检验</p>
+     * @param record
+     * @return
+     */
+    List<User> regtest(User record);
+    
+    /**
+     *<p>Title: change</p>
+     *<p>Description: 修改用户信息</p>
+     * @param record
+     * @return
+     */
+    int change(User record);
+    
+    /**
+     *<p>Title: del</p>
+     *<p>Description:删除（将用户状态修改为1） </p>
+     * @param record
+     * @return
+     */
+    int del(User record);
 }

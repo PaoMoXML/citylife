@@ -128,8 +128,16 @@
                         <tr height="40">
                             <td align="center">
                                 <input type="text" name="moneyID" id= "moneyID" value="" size="24"/>
-                                <input type="button" value="查询"/>
+                                <input type="button" value="查询" onclick="idSearchButton()"/>
                                 <script type="text/javascript">
+                                
+                                function idSearchButton(){
+                                	var id = document.getElementById('moneyID').value;
+                                	console.log(id);
+                                	 window.localStorage.setItem("id", id);
+                                     window.parent.document.getElementById("main").contentWindow.document.getElementById("default").contentWindow.idSearch();
+
+                                }
                                 
                                 </script>
                             </td>

@@ -5,6 +5,8 @@
  */
 package com.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +47,40 @@ public class UserServiceImpl implements UserService {
 	public int reg(User record) {
 		return userMapper.reg(record);
 	}
+	/**
+	 * <p>Title: regtest</p>
+	 * <p>Description: 注册检验</p>
+	 * @param record
+	 * @return
+	 * @see com.service.UserService#regtest(com.pojo.User)
+	 */
+	@Override
+	public List<User> regtest(User record) {
+		return userMapper.regtest(record);
+	}
+	/**
+	 * <p>Title: change</p>
+	 * <p>Description: 用户信息修改</p>
+	 * @param record
+	 * @return
+	 * @see com.service.UserService#change(com.pojo.User)
+	 */
+	@Override
+	public int change(User record) {
+		return userMapper.change(record);
+	}
+	/**
+	 * <p>Title: del</p>
+	 * <p>Description:用户删除（用户状态信息改为1） </p>
+	 * @param record
+	 * @return
+	 * @see com.service.UserService#del(com.pojo.User)
+	 */
+	@Override
+	public int del(User record) {
+		return userMapper.del(record);
+	}
+	
+	
 
 }

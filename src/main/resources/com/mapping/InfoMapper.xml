@@ -303,7 +303,7 @@
       infostatus = #{infostatus,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
+<!--   模糊查询 -->
   <select id="likeSearch" resultType = "com.pojo.Info">
   	select * from info 
   	<where>
@@ -327,7 +327,7 @@
   		</if>
   	</where>
   </select>
-  
+<!--   条件查询信息 -->
   <select id="search" resultType = "com.pojo.Info">
   select * from info
   	<where>
@@ -348,7 +348,7 @@
   		</if>
   	</where>
   </select>
-  
+<!--   管理员查询信息 -->
   <select id="adminInfo" resultType = "com.pojo.Info">
   select * from info
   	<where>
@@ -365,6 +365,83 @@
   			and infostatus = #{infostatus}
   		</if>
   	</where>
-  
   </select>
+<!--   根据id显示信息 -->
+  <select id="idSearch" resultType = "com.pojo.Info">
+  	select * from info where id = #{id} and infostatus = #{infostatus}
+  </select>
+<!--   删除信息（状态改为1） -->
+  <update id="del" parameterType="com.pojo.Info" >
+   update info
+    <set>
+      <if test="infotype != null">
+        infotype = #{infotype,jdbcType=INTEGER},
+      </if>
+      <if test="infotitle != null">
+        infotitle = #{infotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="infocontent != null">
+        infocontent = #{infocontent,jdbcType=VARCHAR},
+      </if>
+      <if test="infolinkman != null">
+        infolinkman = #{infolinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="infophone != null">
+        infophone = #{infophone,jdbcType=VARCHAR},
+      </if>
+      <if test="infoemail != null">
+        infoemail = #{infoemail,jdbcType=VARCHAR},
+      </if>
+      <if test="infodate != null">
+        infodate = #{infodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="infocheck != null">
+        infocheck = #{infocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="infopayfor != null">
+        infopayfor = #{infopayfor,jdbcType=VARCHAR},
+      </if>
+      <if test="infostatus != null">
+        infostatus = #{infostatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<!--   修改信息 -->
+    <update id="change" parameterType="com.pojo.Info" >
+   update info
+    <set>
+      <if test="infotype != null">
+        infotype = #{infotype,jdbcType=INTEGER},
+      </if>
+      <if test="infotitle != null">
+        infotitle = #{infotitle,jdbcType=VARCHAR},
+      </if>
+      <if test="infocontent != null">
+        infocontent = #{infocontent,jdbcType=VARCHAR},
+      </if>
+      <if test="infolinkman != null">
+        infolinkman = #{infolinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="infophone != null">
+        infophone = #{infophone,jdbcType=VARCHAR},
+      </if>
+      <if test="infoemail != null">
+        infoemail = #{infoemail,jdbcType=VARCHAR},
+      </if>
+      <if test="infodate != null">
+        infodate = #{infodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="infocheck != null">
+        infocheck = #{infocheck,jdbcType=VARCHAR},
+      </if>
+      <if test="infopayfor != null">
+        infopayfor = #{infopayfor,jdbcType=VARCHAR},
+      </if>
+      <if test="infostatus != null">
+        infostatus = #{infostatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

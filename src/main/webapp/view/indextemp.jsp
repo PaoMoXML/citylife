@@ -35,35 +35,42 @@
 								<td style="border:1 solid">
 									<table border="0" width="100%" cellspacing="0" cellpadding="0">
 										 <tr height="23">
-											<td width="50%">『<b>求职信息</b>』
-												<a href="../pages/show/singleshow.jsp">求职信息标题</a>
-											</td>
 											<td width="50%">『<b>招聘信息</b>』
-												<a href="../pages/show/singleshow.jsp">招聘信息标题</a>
+												<a href="${pageContext.request.contextPath}/info/show?infotype=1">招聘信息标题</a>
+											</td>
+											<td width="50%">『<b>培训信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=2">培训信息标题</a>
 											</td>
 										 </tr>
 									
 										 <tr height="23">
-											<td width="50%">『<b>培训信息</b>』
-												<a href="../pages/show/singleshow.jsp">培训信息标题</a></td>
+											<td width="50%">『<b>房屋信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=3">房屋信息标题</a></td>
 											<td width="50%">『<b>求购信息</b>』
-												<a href="../pages/show/singleshow.jsp">求购信息标题</a></td>
+												<a href="${pageContext.request.contextPath}/info/show?infotype=4">求购信息标题</a></td>
 										 </tr>
 										 
 										 <tr height="23">
-											<td width="50%">『<b>求职信息</b>』
-												<a href="../pages/show/singleshow.jsp">求职信息标题</a>
+											<td width="50%">『<b>招商引资</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=5">招商引资标题</a>
 											</td>
-											<td width="50%">『<b>招聘信息</b>』
-												<a href="../pages/show/singleshow.jsp">招聘信息标题</a>
+											<td width="50%">『<b>公寓信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=6">公寓信息标题</a>
 											</td>
 										 </tr>
 									
 										 <tr height="23">
-											<td width="50%">『<b>培训信息</b>』
-												<a href="../pages/show/singleshow.jsp">培训信息标题</a></td>
-											<td width="50%">『<b>求购信息</b>』
-												<a href="../pages/show/singleshow.jsp">求购信息标题</a></td>
+											<td width="50%">『<b>求职信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=7">求职信息标题</a></td>
+											<td width="50%">『<b>家教信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=8">家教信息标题</a></td>
+										 </tr>
+										 
+										 <tr height="23">
+											<td width="50%">『<b>车辆信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=9">车辆信息标题</a></td>
+											<td width="50%">『<b>出售信息</b>』
+												<a href="${pageContext.request.contextPath}/info/show?infotype=10">出售信息标题</a></td>
 										 </tr>
 										                
 									</table>
@@ -82,7 +89,6 @@
 							<tr>
 								<td align="center">
 									<table border="1" cellspacing="0" cellpadding="0" width="332" height="160" rules="none" bordercolor="lightgrey" bordercolorlight="lightgrey" bordercolordark="white">
-									
 									</table>
 								</td>
 							
