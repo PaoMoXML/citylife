@@ -113,6 +113,28 @@ public class InfoServiceImpl implements InfoService{
 	public int change(Info record) {
 		return infoMapper.change(record);
 	}
+	/**
+	 * <p>Title: shownew</p>
+	 * <p>Description: </p>
+	 * @param record
+	 * @return
+	 * @see com.service.InfoService#shownew(com.pojo.Info)
+	 */
+	@Override
+	public Info shownew(Info record) {
+		return infoMapper.shownew(record);
+	}
+	/**
+	 * <p>Title: shownew2</p>
+	 * <p>Description: </p>
+	 * @param record
+	 * @return
+	 * @see com.service.InfoService#shownew2(com.pojo.Info)
+	 */
+	@Override
+	public Info shownew2(Info record) {
+		return infoMapper.shownew2(record);
+	}
 	
 	
 

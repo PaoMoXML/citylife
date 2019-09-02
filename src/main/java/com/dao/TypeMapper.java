@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TypeMapper {
+	
     long countByExample(TypeExample example);
 
     int deleteByExample(TypeExample example);
@@ -27,4 +28,12 @@ public interface TypeMapper {
     int updateByPrimaryKeySelective(Type record);
 
     int updateByPrimaryKey(Type record);
+    
+    /**
+     *<p>Title: selectType</p>
+     *<p>Description:查找类型 </p>
+     * @param record
+     * @return
+     */
+    Type selectType (Type record);
 }

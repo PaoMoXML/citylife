@@ -33,4 +33,9 @@ public interface InfoService {
 	int del(Info record);
 	
 	int change(Info record);
+	
+    Info shownew(Info record);
+    
+    Info shownew2(Info record);
+
 }

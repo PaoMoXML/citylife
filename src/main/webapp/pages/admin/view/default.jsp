@@ -75,7 +75,7 @@ function adminSearch(){
 	pagination : true,//是否分页
 	sidePagination : 'client',//server:服务器端分页|client：前端分页
 	pageSize : 5,//单页记录数
-	pageList : [ 5, 10, 20, 30 ],//可选择单页记录数
+	pageList : [ 5, 10 ],//可选择单页记录数
 	showRefresh : true,//刷新按钮
 	detailView:true,
 	detailFormatter:"detailFormatter",
@@ -107,7 +107,7 @@ function adminSearch(){
 }) 
 }
 function detailFormatter(index, row) {
-    var html = []
+    var html = [ ]
     $.each(row, function (key, value) {
       html.push('<p><b>' + key + ':</b> ' + value + '</p>')
     })

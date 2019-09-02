@@ -98,14 +98,26 @@
 							<tr height="35"><td colspan="2" style="text-indent:5" valign="bottom"><font color="#004790"><b>■最新信息</b>『免费专区』</font></td></tr>            
 							 
 							<tr>
-								<td> <table id="showSearch"
-											class="table"
-											style="margin: 0px auto">
+								<td align="center">
+									<table id = "freeshow" border="1" cellspacing="0" cellpadding="0" width="332" height="160" rules="none" bordercolor="lightgrey" bordercolorlight="lightgrey" bordercolordark="white">
+									<tr>
+										<td>标题</td>
+										<td>联系人</td>
+										<td>Email</td>
+										<td>内容</td>
+									</tr>
 									</table>
-								</td>		
-								<td> 
-									1234
-								</td>							
+								</td>	
+								<td align="center">
+									<table id = "payshow" border="1" cellspacing="0" cellpadding="0" width="332" height="160" rules="none" bordercolor="lightgrey" bordercolorlight="lightgrey" bordercolordark="white">
+									<tr>
+										<td>标题</td>
+										<td>联系人</td>
+										<td>Email</td>
+										<td>内容</td>
+									</tr>
+									</table>
+								</td>															
 							</tr>
 							
 						
@@ -114,8 +126,8 @@
 									<table border="1" cellspacing="0" cellpadding="0" width="332" height="160" rules="none" bordercolor="lightgrey" bordercolorlight="lightgrey" bordercolordark="white">
 									<tr bgcolor="#00B48F" height="30">
 										<td style="text-indent:10"><b><font color="white">培训信息</font></b></td> </tr>
-									<tr bgcolor="#FAFCF5"><td style="text-indent:3">★ <a href="../pages/show/singleshow.jsp">发布培训信息标题</a></td></tr>
-									<tr height="20" bgcolor="#FAFCF5"><td align="right"><a href="../pages/show/listshow.jsp">更多...</a>&nbsp;&nbsp;</td></tr>	
+									<tr bgcolor="#FAFCF5"><td style="text-indent:3">★ <a href="${pageContext.request.contextPath}/info/show?infotype=2">培训信息</a></td></tr>
+									<tr height="20" bgcolor="#FAFCF5"><td align="right"><a href="${pageContext.request.contextPath}/info/show?infotype=2">更多...</a>&nbsp;&nbsp;</td></tr>	
 									
 									</table>
 								</td>
@@ -128,10 +140,10 @@
 										 </tr>
 									
 										<tr bgcolor="#FAFCF5">
-											<td style="text-indent:3">★ <a href="../pages/show/singleshow.jsp">发布求职信息标题</a></td>
+											<td style="text-indent:3">★ <a href="${pageContext.request.contextPath}/info/show?infotype=7">求职信息</a></td>
 										</tr>
 										<tr height="20" bgcolor="#FAFCF5">
-											<td align="right"><a href="../pages/show/listshow.jsp">更多...</a>&nbsp;&nbsp;</td>
+											<td align="right"><a href="${pageContext.request.contextPath}/info/show?infotype=7">更多...</a>&nbsp;&nbsp;</td>
 										</tr>                                    
 									 
 									</table>
@@ -148,6 +160,93 @@
 		</tr>
 
        </table>
+       <script type="text/javascript">
+       
+       window.onload = function showNew(){
+				$.ajax({
+					async: false,
+					type:"post",
+					url:'${pageContext.request.contextPath}/info/showNew?infopayfo=1',
+					data:'',
+					dataType:"json",
+			        contentType : "application/json;charset=UTF-8",
+			        success: function(result){
+			            console.log(result.key);
+			            var free = result.key;
+			            var tbBody = "";
+		        		tbBody = "<tr>" +
+		        				"</tr>"+
+		        				"<tr>" + 
+		        					"<td>"+free.infotitle +"</td>"+
+		        					"<td>"+free.infolinkman+"</td>"+
+		        					"<td>"+free.infoemail+"</td>"+
+		        					"<td>"+free.infocontent +"</td>"+
+		        				"</tr>";
+		        		$("#freeshow").append(tbBody);
+			            
+			           },
+			           error: function(result) {
+			               console.log(result);
+			           },
+				});
+				
+				$.ajax({
+					async: false,
+					type:"post",
+					url:'${pageContext.request.contextPath}/info/showNew2?infopayfo=1',
+					data:'',
+					dataType:"json",
+			        contentType : "application/json;charset=UTF-8",
+			        success: function(result){
+			            console.log(result.key);
+			            var pay = result.key;
+			            var tbBody2 = "";
+		        		tbBody2 = "<tr>" +
+		        				"</tr>"+
+		        				"<tr>" + 
+		        					"<td>"+pay.infotitle +"</td>"+
+		        					"<td>"+pay.infolinkman+"</td>"+
+		        					"<td>"+pay.infoemail+"</td>"+
+		        					"<td>"+pay.infocontent +"</td>"+
+		        				"</tr>";
+		        		$("#payshow").append(tbBody2);
+			            
+			           },
+			           error: function(result) {
+			               console.log(result);
+			           },
+				})
+       		}
+       
+/*        window.onload = function showNew2(){
+			
+			$.ajax({
+				type:"post",
+				url:'${pageContext.request.contextPath}/info/showNew?infopayfo=1',
+				data:'',
+				dataType:"json",
+		        contentType : "application/json;charset=UTF-8",
+		        success: function(result){
+		            console.log(result.key);
+		            var free = result.key;
+		            var tbBody2 = "";
+	        		tbBody2 = "<tr>" +
+	        				"</tr>"+
+	        				"<tr>" + 
+	        					"<td>"+free.infotitle +"</td>"+
+	        					"<td>"+free.infolinkman+"</td>"+
+	        					"<td>"+free.infoemail+"</td>"+
+	        					"<td>"+free.infocontent +"</td>"+
+	        				"</tr>";
+	        		$("#payshow").append(tbBody2);
+		            
+		           },
+		           error: function(result) {
+		               console.log(result);
+		           },
+			})
+       } */
+       </script>
 
 		<!-- 页脚 -->
 		<iframe src="end.jsp" frameBorder="0" width="920" scrolling="no" height="70" style="margin-top:0"></iframe>	   

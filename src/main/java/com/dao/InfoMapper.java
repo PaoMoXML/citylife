@@ -4,6 +4,7 @@ import com.pojo.Info;
 import com.pojo.InfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface InfoMapper {
     long countByExample(InfoExample example);
@@ -87,4 +88,14 @@ public interface InfoMapper {
      * @return
      */
     int change(Info record);
+    
+    /**
+     *<p>Title: shownew</p>
+     *<p>Description: 显示最新免费消息</p>
+     * @param record
+     * @return
+     */
+    Info shownew(Info record);
+    
+    Info shownew2(Info record);
 }

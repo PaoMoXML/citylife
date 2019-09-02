@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,8 +8,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>都市信息网</title>
 <link type="text/css" rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+
+<%--js部分--%>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/bootstrap-table.js"></script>
+<script src="../../js/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/echarts.min.js"></script>
 </head>
 <body background="../../images/back.gif">
+	<script type="text/javascript">
+	 window.onload = function showtype(){
+		 
+	 }
+	</script>
     <center>
         <table border="0" width="920" cellspacing="0" cellpadding="0" bgcolor="white">
             <tr><td colspan="2">
@@ -24,7 +41,7 @@
         <table border="0" width="670" cellspacing="0" cellpadding="0" style="margin-top:5">
             
             
-                <tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■推荐XX信息</b>『缴费专区』</font></td></tr>
+                <tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■推荐信息</b>『缴费专区』</font></td></tr>
                 
                      
                          <tr><td align="center" style="border:1 solid" bgcolor="#F0F0F0">
@@ -34,7 +51,7 @@
                              <c:forEach items="${info0}" var="list0"> 
                                  <tr height="30">
                                      <td colspan="2">【${list0.infotitle }信息】</td>
-                                     <td align="right">发布时间：『${list0.infodate }』&nbsp;</td>
+                                     <td align="right">发布时间：『<fmt:formatDate value="${list0.infodate}" pattern="yyyy-MM-dd HH:mm:ss"/>』&nbsp;</td>
                                  </tr>
                                  <tr height="80"><td colspan="3">${list0.infotitle }信息内容</td></tr>
                                  <tr height="30" align="center">
@@ -56,7 +73,7 @@
         <table border="0" width="670" cellspacing="0" cellpadding="0" style="margin-top:5" rules="rows">
             
             
-                <tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■最新XX信息</b>『免费专区』</font></td></tr>
+                <tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■最新信息</b>『免费专区』</font></td></tr>
                 
                      
                          <tr><td align="center" style="border:1 solid" bgcolor="#F0F0F0">
@@ -66,7 +83,7 @@
                              <c:forEach items="${info1}" var="list1"> 
                                  <tr height="30">
                                      <td colspan="2">【${list1.infotitle }信息】</td>
-                                     <td align="right">发布时间：『${list1.infodate }』&nbsp;</td>
+                                     <td align="right">发布时间：『<fmt:formatDate value="${list1.infodate}" pattern="yyyy-MM-dd HH:mm:ss"/>』&nbsp;</td>
                                  </tr>
                                  <tr height="80"><td colspan="3">${list1.infotitle }信息内容</td></tr>
                                  <tr height="30" align="center">

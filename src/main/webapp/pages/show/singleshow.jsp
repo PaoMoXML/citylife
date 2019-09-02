@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,14 +26,14 @@
 					<table border="0" width="670" cellspacing="0" cellpadding="0" style="margin-top:5;">
 					<c:forEach items="${info}" var="list"> 
 						<tr height="30">
-							<td style="text-indent:5" valign="bottom"><font color="#004790"><b>■推荐XX信息</b>『缴费专区』</font></td>
+							<td style="text-indent:5" valign="bottom"><font color="#004790"><b>■推荐信息</b>『缴费专区』</font></td>
 						</tr>
 						<tr>
 							<td align="center" style="border:0px" bgcolor="#F0F0F0">
 								<table border="0" width="655" cellpadding="3" style="word-break:break-all;font-size:14px;">
 									<tr height="30">
 										<td colspan="2">【${list.infotitle}】</td>
-										<td align="right">发布时间：『${list.infodate}』&nbsp;</td>
+										<td align="right">发布时间：『<fmt:formatDate value="${list.infodate}" pattern="yyyy-MM-dd HH:mm:ss"/>』&nbsp;</td>
 									</tr>
 									<tr height="20">
 										<td colspan="3">${list.infotitle}信息内容</td>

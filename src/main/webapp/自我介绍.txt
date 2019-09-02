@@ -1,0 +1,38 @@
+面试官好，我叫徐梦麟，来自苏州张家港，是盐城工学院 信息学院 软件工程系 将于2020年7月毕业的大四学生
+
+我（此次前来）想 应聘的职位是Java后端开发工程师
+
+在大学里，主修Java和JavaEE，学习过必备的数据库知识和算法知识数据结构知识，善长使用Mysql数据库
+
+会使用主流的框架：Spring SpringMVC Mybatis等，有使用过SpringBoot的经验
+
+大二时参与了学校教师的项目，使用SpringBoot开发了两款微信小程序的后端
+
+大三时，参与了高校微信小程序大赛，使用nodejs开发了前端和后端，并获得东北赛区省级二等奖
+
+学习新知识遇到问题时主要使用 csdn，GitHub上寻找demo和w3cschool，来解决问题。
+
+平时喜欢听音乐，打乒乓球，看动漫
+
+望贵单位给我一次效力的机会，录用我，并在今后的工作中，我会积极进取，奋力拼搏。
+
+希望我可以加入贵公司
+
+
+Hello interviewer, my name is Xu Menglin, from Zhangjiagang, Suzhou, is the student at Yancheng Institute of Technology, and Will graduate in July 2020
+
+ I want to apply for a Java development engineer.
+
+In college, majoring in Java and JavaEE, learning the necessary database knowledge , good use of Mysql database
+
+I can use the mainstream framework: Spring SpringMVC Mybatis, etc., have used SpringBoot experience
+
+In the sophomore year, I participated in the school teacher's project, and developed the backend of two WeChat applets using SpringBoot.
+
+In the third year, I participated in the WeChat applet contest, and developed the front-end and back-end using nodejs, and won the second prize in the Northeast Division.
+
+When learning new knowledge, I mainly use csdn, GitHub to find demo and w3cschool to solve the problem.
+
+I like listening to music, playing table tennis, watching anime.
+
+My self-introduction is over.

@@ -178,4 +178,8 @@
       typeintro = #{typeintro,jdbcType=VARCHAR}
     where typesign = #{typesign,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectType" resultType = "com.pojo.Type">
+  select * from type where typesign = #{typesign}
+  </select>
 </mapper>

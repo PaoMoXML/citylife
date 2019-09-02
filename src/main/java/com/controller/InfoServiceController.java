@@ -57,11 +57,11 @@ public class InfoServiceController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/search")
-	public String search (@RequestBody Info record) {
+	public List<Info> search (@RequestBody Info record) {
 		JSONObject json = new JSONObject();
 		List<Info> i = infoService.search(record);
 		json.put("key", i);
-		return json.toJSONString();
+		return i;
 	}
 	
 	/**
@@ -215,6 +215,37 @@ public class InfoServiceController {
 	}
 	
 	
+	/**
+	 *<p>Title: showNew</p>
+	 *<p>Description: 显示最新消息</p>
+	 * @param record
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/showNew")
+	public String showNew(Info record) {
+		record.setInfopayfor("1");
+		Info info = infoService.shownew(record);
+		JSONObject json = new JSONObject();
+		json.put("key", info);
+		return json.toJSONString();
+	}
+	
+	/**
+	 *<p>Title: showNew2</p>
+	 *<p>Description: </p>
+	 * @param record
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/showNew2")
+	public String showNew2(Info record) {
+		record.setInfopayfor("1");
+		Info info = infoService.shownew2(record);
+		JSONObject json = new JSONObject();
+		json.put("key", info);
+		return json.toJSONString();
+	}
 	
 	
 	

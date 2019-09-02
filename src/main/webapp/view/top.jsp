@@ -18,6 +18,8 @@
                 <td style="text-indent:10" valign="bottom">
                     <a href="" onclick="window.parent.location.href='../pages/add/addInfo.jsp'" style="color:gray">[发布信息]</a>
                     <a href="" onclick="window.parent.location.href='../pages/admin/login.jsp'" style="color:gray">[进入后台]</a>
+                    <a href="${pageContext.request.contextPath}/file/download" style="color:gray">[下载用户手册]</a>
+                    
                 </td>
                 <td align="right" valign="bottom">
                     <a href="#"  style="color:gray" onclick="">设为主页 -</a>

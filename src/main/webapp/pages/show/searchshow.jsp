@@ -90,6 +90,7 @@
 							toolbar : '#toolbar', //工具按钮用哪个容器
 							buttonsAlign : "right", //按钮位置
 							pagination : true,//是否分页
+							pageList : [ 2, 5, 10 ],//可选择单页记录数
 							sidePagination : 'client',//server:服务器端分页|client：前端分页
 							cardView : true,
 							pageSize : 2,//单页记录数

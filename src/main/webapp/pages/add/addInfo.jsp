@@ -119,7 +119,10 @@
 										        contentType : "application/json;charset=UTF-8",
 										        success: function(result){
 										            console.log(result);
-										            
+										            if(result.key == "success"){
+										            	alert("发布成功");
+										            	 location.reload();
+										            }
 										           },
 										           error: function(result) {
 										               console.log(result);

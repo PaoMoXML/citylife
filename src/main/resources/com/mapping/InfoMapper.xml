@@ -447,4 +447,12 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="shownew" resultType = "com.pojo.Info">
+  select * from Info where infodate = (select Max(infodate) from Info where infopayfor = #{infopayfor})
+  </select>
+  
+   <select id="shownew2" resultType = "com.pojo.Info">
+  select max(infodate) from Info where infodate not in (select Max(infodate) from Info where infopayfor = #{infopayfor})
+  </select>
 </mapper>
