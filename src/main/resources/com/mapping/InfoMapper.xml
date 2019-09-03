@@ -453,6 +453,6 @@
   </select>
   
    <select id="shownew2" resultType = "com.pojo.Info">
-  select * from Info where infodate = (select Max(infodate) from Info where infopayfor = #{infopayfor})
+  select max(infodate) from Info where infodate not in (select Max(infodate) from Info where infopayfor = #{infopayfor})
   </select>
 </mapper>

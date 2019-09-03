@@ -97,7 +97,7 @@
 						<table border="0" width="670" cellspacing="2" cellpadding="0">
 							<tr height="35"><td colspan="2" style="text-indent:5" valign="bottom"><font color="#004790"><b>■最新信息</b>『免费专区』</font></td></tr>            
 							 
-<!-- 							<tr>
+							<tr>
 								<td align="center">
 									<table id = "freeshow" border="1" cellspacing="0" cellpadding="0" width="332" height="160" rules="none" bordercolor="lightgrey" bordercolorlight="lightgrey" bordercolordark="white">
 									<tr>
@@ -118,7 +118,7 @@
 									</tr>
 									</table>
 								</td>															
-							</tr> -->
+							</tr>
 							
 						
 							<tr>
@@ -166,7 +166,7 @@
 				$.ajax({
 					async: false,
 					type:"post",
-					url:'${pageContext.request.contextPath}/info/showNew?infopayfor=0',
+					url:'${pageContext.request.contextPath}/info/showNew?infopayfo=1',
 					data:'',
 					dataType:"json",
 			        contentType : "application/json;charset=UTF-8",
@@ -193,7 +193,7 @@
 				$.ajax({
 					async: false,
 					type:"post",
-					url:'${pageContext.request.contextPath}/info/showNew?infopayfor=1',
+					url:'${pageContext.request.contextPath}/info/showNew2?infopayfo=1',
 					data:'',
 					dataType:"json",
 			        contentType : "application/json;charset=UTF-8",
