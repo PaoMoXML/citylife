@@ -24,7 +24,7 @@
 
         <table id="showSearch"
 				class="table"
-				style="margin: 0px auto">
+				style="margin: 0px auto;table-layout:fixed">
 		</table>
 		
 		 <table id="idSearch"
@@ -87,19 +87,62 @@ function adminSearch(){
 	}, {
 		title : '标题',
 		field : 'infotitle',
-		sortable : true
+		sortable : true,
+		cellStyle:{
+			css:{
+				"overflow": "hidden",
+				"text-overflow": "ellipsis",
+				"white-space": "nowrap"
+				}
+		}
 	}, {
 		title : '联系人',
 		field : 'infolinkman',
+		cellStyle:{
+			css:{
+				"overflow": "hidden",
+				"text-overflow": "ellipsis",
+				"white-space": "nowrap"
+				}
+		}
 	}, {
 		title : '电话',
 		field : 'infophone',
+		cellStyle:{
+			css:{
+				"overflow": "hidden",
+				"text-overflow": "ellipsis",
+				"white-space": "nowrap"
+				}
+		}
 	}, {
 		title : '邮箱',
 		field : 'infoemail',
+		cellStyle:{
+			css:{
+				"overflow": "hidden",
+				"text-overflow": "ellipsis",
+				"white-space": "nowrap"
+				}
+		}
 	},{
 		title : '内容',
 		field : 'infocontent',
+		cellStyle:{
+			css:{
+				"overflow": "hidden",
+				"text-overflow": "ellipsis",
+				"white-space": "nowrap"
+				}
+		}
+	},{
+		title : '是否审核',
+		field : 'infocheck',
+		formatter : formatcheck,
+	},{
+		title : '是否付费',
+		field : 'infopayfor',
+		formatter : formatpay,//对返回的数据进行处理再显示
 	},{
 		title : '操作',
 		field : 'id',
@@ -164,19 +207,54 @@ function idSearch(){
 		}, {
 			title : '标题',
 			field : 'infotitle',
-			sortable : true
+			sortable : true,
+			cellStyle:{
+				css:{
+					"overflow": "hidden",
+					"text-overflow": "ellipsis",
+					"white-space": "nowrap"
+					}
+			}
 		}, {
 			title : '联系人',
 			field : 'infolinkman',
+			cellStyle:{
+				css:{
+					"overflow": "hidden",
+					"text-overflow": "ellipsis",
+					"white-space": "nowrap"
+					}
+			}
 		}, {
 			title : '电话',
 			field : 'infophone',
+			cellStyle:{
+				css:{
+					"overflow": "hidden",
+					"text-overflow": "ellipsis",
+					"white-space": "nowrap"
+					}
+			}
 		}, {
 			title : '邮箱',
 			field : 'infoemail',
+			cellStyle:{
+				css:{
+					"overflow": "hidden",
+					"text-overflow": "ellipsis",
+					"white-space": "nowrap"
+					}
+			}
 		},{
 			title : '内容',
 			field : 'infocontent',
+			cellStyle:{
+				css:{
+					"overflow": "hidden",
+					"text-overflow": "ellipsis",
+					"white-space": "nowrap"
+					}
+			}
 		},{
 			title : '是否付费',
 			field : 'infopayfor',
@@ -197,12 +275,10 @@ function idSearch(){
 	//value代表该列的值，row代表当前对象
 	function formatpay(value, row, index) {
 		return value == 0 ? "否" : "是";
-		//或者 return row.sex == 1 ? "男" : "女";
 	}
 	
 	function formatcheck(value, row, index) {
 		return value == 0 ? "否" : "是";
-		//或者 return row.sex == 1 ? "男" : "女";
 	}
 	
 	function detailFormatter(index, row) {

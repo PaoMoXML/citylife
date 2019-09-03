@@ -70,7 +70,7 @@
 									</tr>
 									<tr height="30">
 										<td style="text-indent:20">发布时间：</td>
-										<td>${list.infodate }</td>
+										<td><fmt:formatDate value="${list.infodate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 									</tr>
 									<tr height="30">
 										<td style="text-indent:20">信息标题：</td>
